@@ -1,0 +1,17 @@
+{
+	"features":[
+		{
+			"name":"uid",
+			"dtype":"INT",
+			"ftype":"continuous",
+			"range":[1,1892]
+		}
+	],
+	"targets":[
+		{
+			"name":"iid",
+			"ftype":"categorical"
+		}
+    ]
+}
+  
