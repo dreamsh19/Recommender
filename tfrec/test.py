@@ -1,8 +1,5 @@
 import recommender
 
-
-
-
 rec_unit=recommender.recommender()
 
 for uid in range(100):

@@ -4,8 +4,10 @@ import pandas as pd
 import os
 from collections import defaultdict
 import DataGenerator
-TESTSET_RATIO=0.1
 
+
+
+TESTSET_RATIO=0.1
 
 #SEP=' '
 SEP='\t'
@@ -13,8 +15,8 @@ SEP='\t'
 
 NAMES=['USER_ID','ITEM_ID','RATING']
 #NAMES=['USER_ID','ITEM_ID','RATING','TIMESTAMP']
-#HEADER=None
-HEADER=0
+HEADER=None
+#HEADER=0
 
 DTYPE={'USER_ID':np.int64,'ITEM_ID':np.int64,'RATING':np.float64}
 #DTYPE={'USER_ID':np.int64,'ITEM_ID':np.int64,'RATING':np.float64,'TIMESTAMP':np.int64}
@@ -70,7 +72,6 @@ def ratings_train_test(data_file):
 		already_rated_idx.append(sorted(i_list))
 
 	def create_sparse_train_test():	
-#	def create_sparse_train_test(ratings,n_users,n_items):
 
 		testset_size=int(len(ratings)*TESTSET_RATIO)
 		testset_idx_list=np.random.choice(len(ratings),testset_size,replace=False)
@@ -88,7 +89,6 @@ def ratings_train_test(data_file):
 		
 		return train_sparse,test_sparse
 		
-#	train_sparse,test_sparse = create_sparse_train_test(ratings,n_users,n_items)
 	train_sparse,test_sparse = create_sparse_train_test()
 
 	return already_rated_idx, unique_users, unique_items ,train_sparse,test_sparse
@@ -102,12 +102,3 @@ def save_model(model_dir,already_rated_idx,user_map,item_map,row_factor,col_fact
 	np.save(os.path.join(model_dir, 'item_map'), item_map)
 	np.save(os.path.join(model_dir, 'row_factor'), row_factor)
 	np.save(os.path.join(model_dir, 'col_factor'), col_factor)
-	
-if __name__=='__main__':
-	
-	ratings=[ (u,i,r) for u in range(10) for i in range(5) for r in range(5)]
-	ratings=np.array(ratings)
-	n_users=10
-	n_items=5
-	
-	ratings_train_test(DATA_FILE)

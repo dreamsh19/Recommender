@@ -2,7 +2,7 @@
 
 
 image_name=docker-registry.linecorp.com/lp60409/tfrec
-image_tag=0.3
+image_tag=latest
 
 full_image_name=${image_name}:${image_tag}
 

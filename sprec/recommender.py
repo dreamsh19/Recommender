@@ -91,8 +91,3 @@ class recommender:
 	def predict(self,X,feature_names):
 		
 		return self.getResult(int(X[0][0]))
-	
-if __name__=='__main__':
-	uid=np.array([[2,]],dtype=np.float64)
-	temp=recommender()
-	print(temp.predict(uid,'feature_names'))
