@@ -4,7 +4,7 @@
 			"name":"uid",
 			"dtype":"INT",
 			"ftype":"continuous",
-			"range":[1,1892]
+			"range":[1,2100]
 		}
 	],
 	"targets":[
